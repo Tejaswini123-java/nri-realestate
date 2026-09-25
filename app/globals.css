@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --gold: #C9970C;
+  --gold-light: #F0C040;
+  --gold-pale: #FDF6DC;
+  --cream: #FAFAF7;
+  --white: #FFFFFF;
+  --navy: #0B1220;
+  --navy2: #101A2E;
+  --text-dark: #1A1A2E;
+  --text-mid: #444466;
+  --text-light: #888899;
+}
+
+* { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+}
+
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+.gold-text {
+  background: linear-gradient(135deg, #C9970C 0%, #F0C040 50%, #C9970C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #C9970C, #F0C040, #C9970C);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(201,151,12,0.35);
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,151,12,0.5);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+/* 3D tilt property card */
+.property-card {
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+.property-card:hover {
+  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.01);
+  box-shadow: 0 30px 60px rgba(201,151,12,0.22);
+}
+
+.gold-divider {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(90deg, #C9970C, #F0C040);
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stat-number { animation: countUp 0.5s ease forwards; }
+
+.nav-scrolled {
+  box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+  background: rgba(11,18,32,0.97);
+}
+
+.tab-active {
+  background: linear-gradient(135deg, #C9970C, #F0C040);
+  color: white;
+  box-shadow: 0 4px 15px rgba(201,151,12,0.3);
+}
+
+.star-gold { color: #F0C040; }
+
+.gold-border-card {
+  border: 1px solid rgba(201,151,12,0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.gold-border-card:hover {
+  border-color: rgba(201,151,12,0.5);
+  box-shadow: 0 8px 30px rgba(201,151,12,0.12);
+}
+
+.gold-input:focus {
+  outline: none;
+  border-color: #C9970C;
+  box-shadow: 0 0 0 3px rgba(201,151,12,0.15);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(11, 18, 32, 0.92) 0%,
+    rgba(11, 18, 32, 0.65) 55%,
+    rgba(201,151,12,0.15) 100%
+  );
+}
+
+@keyframes scrollDown {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.5; }
+}
+.scroll-indicator { animation: scrollDown 1.5s infinite; }
+
+@media (max-width: 768px) {
+  .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+  .mobile-menu.open { transform: translateX(0); }
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Flag pill */
+.flag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201,151,12,0.35);
+  color: #F0C040;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11,18,32,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.popup-card {
+  animation: popIn 0.45s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+

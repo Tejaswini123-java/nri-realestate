@@ -48,9 +48,9 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Reach Us</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Phone size={15} className="text-[#F0C040]" /> +91 22 6660 0000</li>
-            <li className="flex items-center gap-2"><Mail size={15} className="text-[#F0C040]" /> nri@nmnrihomes.in</li>
-            <li className="flex items-center gap-2"><MapPin size={15} className="text-[#F0C040]" /> Vashi, Navi Mumbai, India</li>
+            <li className="flex items-center gap-2"><Phone size={15} className="text-[#F0C040]" /> +91 98333120662</li>
+            <li className="flex items-center gap-2"><Mail size={15} className="text-[#F0C040]" /> deepak.assetindia@gmail.com</li>
+            <li className="flex items-center gap-2"><MapPin size={15} className="text-[#F0C040]" />SHOP NO 121, Asset India Realty, Sector 15, CBD Belapur, Navi Mumbai, Maharashtra 400614</li>
           </ul>
         </div>
       </div>
